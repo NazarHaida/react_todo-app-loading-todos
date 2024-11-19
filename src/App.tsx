@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { FormEvent, useEffect, useState } from 'react';
-import { UserWarning } from './UserWarning';
+// import { UserWarning } from './UserWarning';
 import { getTodos, postTodos, USER_ID } from './api/todos';
 import { Todo } from './types/Todo';
 import { TodoList } from './TodoList';
 import { Footer } from './Footer';
 
 export const App: React.FC = () => {
-  if (!USER_ID) {
-    return <UserWarning />;
-  }
+  // if (!USER_ID) {
+  //   return <UserWarning />;
+  // }
 
   enum Filters {
     All = 'All',
@@ -26,12 +26,12 @@ export const App: React.FC = () => {
   const [filterSelected, setFilterSelected] = useState<Filters>(Filters.All);
 
   const updateTodos = (todoId, title) => {
+    // prettier-ignore
     setTodos(prevState =>
       title === null
         ? prevState.filter(todo => todo.id !== todoId)
-        : prevState.map(todo =>
-            todoId === todo.id ? { ...todo, title: title } : todo,
-          ),
+        : prevState.map(todo => todoId === todo.id
+          ? { ...todo, title: title } : todo,),
     );
   };
 

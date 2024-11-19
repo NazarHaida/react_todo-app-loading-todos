@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
 import { Todo } from './types/Todo';
-import suite from 'node:test';
 
 type Props = {
   todos: Todo[];

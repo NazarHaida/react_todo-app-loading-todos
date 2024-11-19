@@ -76,14 +76,18 @@ export const TodoList: React.FC<Props> = ({
           data-cy="Todo"
           className={`todo ${todo.completed ? 'completed' : ''}`}
         >
-          <label className="todo__status-label">
+          <label htmlFor={`todo-${todo.id}`} className="todo__status-label">
+            {}
             <input
+              id={`todo-${todo.id}`}
               checked={todo.completed}
               data-cy="TodoStatus"
               type="checkbox"
               className="todo__status"
+              onChange={() => {}}
             />
           </label>
+
           {editingId === todo.id ? (
             <form
               onSubmit={e => {
