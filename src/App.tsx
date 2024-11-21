@@ -105,12 +105,9 @@ export const App: React.FC = () => {
           <button
             disabled={isSubmitting}
             type="button"
-            className={classNames(
-              // eslint-disable-next-line
-              'todoapp__toggle-all' as any,
-              // eslint-disable-next-line
-              { active: todos.every(todo => todo.completed) } as any,
-            )}
+            className={classNames('todoapp__toggle-all', {
+              active: todos.every(todo => todo.completed),
+            })}
             data-cy="ToggleAllButton"
           />
 

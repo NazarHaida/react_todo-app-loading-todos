@@ -72,8 +72,7 @@ export const TodoItem: React.FC<Props> = ({
     <div
       key={id}
       data-cy="Todo"
-      // eslint-disable-next-line
-      className={classNames('todo' as any, { completed: completed } as any)}
+      className={classNames('todo', { completed: completed })}
     >
       <label htmlFor={`todo-${id}`} className="todo__status-label">
         {}

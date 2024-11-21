@@ -31,12 +31,9 @@ export const Footer: React.FC<Props> = ({
           <a
             key={filter}
             href={`#/${filter.toLowerCase()}`}
-            className={classNames(
-              // eslint-disable-next-line
-              'filter__link' as any,
-              // eslint-disable-next-line
-              { selected: filterSelected === filter } as any,
-            )}
+            className={classNames('filter__link', {
+              selected: filterSelected === filter,
+            })}
             data-cy={`FilterLink${filter}`}
             onClick={() => setFilterSelected(filter)}
           >
