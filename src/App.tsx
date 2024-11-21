@@ -4,14 +4,10 @@ import React, { FormEvent, useEffect, useState } from 'react';
 // import { UserWarning } from './UserWarning';
 import { getTodos, postTodos, USER_ID } from './api/todos';
 import { Todo } from './types/Todo';
-import { TodoList } from './TodoList';
 import { Footer } from './Footer';
-
+import { TodoList } from './TodoList';
+import classNames from 'classnames';
 export const App: React.FC = () => {
-  // if (!USER_ID) {
-  //   return <UserWarning />;
-  // }
-
   enum Filters {
     All = 'All',
     Active = 'Active',
@@ -106,15 +102,18 @@ export const App: React.FC = () => {
 
       <div className="todoapp__content">
         <header className="todoapp__header">
-          {/* this button should have `active` class only if all todos are completed */}
           <button
             disabled={isSubmitting}
             type="button"
-            className="todoapp__toggle-all active"
+            className={classNames(
+              // eslint-disable-next-line
+              'todoapp__toggle-all' as any,
+              // eslint-disable-next-line
+              { active: todos.every(todo => todo.completed) } as any,
+            )}
             data-cy="ToggleAllButton"
           />
 
-          {/* Add a todo on form submit */}
           <form
             onSubmit={event => {
               handleSubmit(event);
