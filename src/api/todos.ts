@@ -7,7 +7,6 @@ export const getTodos = () => {
   return client.get<Todo[]>(`/todos?userId=${USER_ID}`);
 };
 
-// Add more methods here
 export const postTodos = (data: Omit<Todo, 'id'>) => {
   return client.post<Todo>(`/todos`, data);
 };
@@ -17,5 +16,5 @@ export const editTodos = (data: { title: string; todoId: number }) => {
 };
 
 export const deleteTodos = (id: number) => {
-  return client.delete<Todo>(`/todos/${id}`); // Corrected URL
+  return client.delete<Todo>(`/todos/${id}`);
 };

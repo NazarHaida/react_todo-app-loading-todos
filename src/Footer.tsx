@@ -1,15 +1,11 @@
 import { Todo } from './types/Todo';
 import classNames from 'classnames';
+import {Filters} from './types/Filters'
 
 type Props = {
   todos: Todo[];
 };
 
-enum Filters {
-  All = 'All',
-  Active = 'Active',
-  Completed = 'Completed',
-}
 
 export const Footer: React.FC<Props> = ({
   todos,

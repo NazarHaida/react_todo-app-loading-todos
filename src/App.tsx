@@ -7,12 +7,9 @@ import { Todo } from './types/Todo';
 import { Footer } from './Footer';
 import { TodoList } from './TodoList';
 import classNames from 'classnames';
+import {Filters} from './types/Filters'
+
 export const App: React.FC = () => {
-  enum Filters {
-    All = 'All',
-    Active = 'Active',
-    Completed = 'Completed',
-  }
 
   const [todos, setTodos] = useState<Todo[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
@@ -137,7 +134,7 @@ export const App: React.FC = () => {
           setErrorMessage={setErrorMessage}
         />
 
-        {todos.length !== 0 && (
+        {!!todos.length && (
           <Footer
             todos={todos}
             filterSelected={filterSelected}
